@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>wllm </title>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" >
+$(function() {
+		setInterval("animateNewRainbown();",500);
+		$("#menu li a").click(function(){
+			var txt=$(this).html();
+			$(".itemMenuSelected").each(function(){
+				var txt2=$(this).html();
+				//alert(txt2);
+				$(this).html(txt2.substring(0,(txt2.length-2)));
+				$(this).removeClass("itemMenuSelected");
+				});
+			$(this).html(""+txt+"..");
+			$(this).addClass("itemMenuSelected");
+			});
+});
+function newRainbown()
+{
+	animateNewRainbown();
+	//setInterval("newRainbown();",3000);
+	}
+
+function animateNewRainbown()
+{
+	var maxHeight=$( "#header-content" ).height()+20;
+	var itemRain=Math.floor((Math.random())+0.5);
+	var vel=Math.floor((Math.random()*3000)+3000);
+	var posX=Math.floor((Math.random() * $(window).width()) + 200);
+	$("#header-content").append("<div id='"+posX+"' class='rainx' style='left:"+posX+"px'>"+itemRain+"</div>");
+	$( "#"+posX ).animate({ "top": "+="+maxHeight+"px" }, vel , function() {$("#"+posX).remove();});//, function() { setInterval("animateNewRainbown();",3000); }
+	}
+</script>
+<style type="text/css">
+
+body
+{
+	position:absolute;
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+	float:left;
+}
+#hqr
+{
+	background-image:url(images/hwllm-02.png);
+	background-repeat:no-repeat;
+		width:134px;
+	position:static;
+	height:100%;
+	margin:0;
+	float:left;
+	}
+#hwllm
+{
+	background-image:url(images/hwllm-01.png);
+	background-repeat:no-repeat;
+		width:70%;
+	position:static;
+	height:100%;
+	margin:0;
+	float:left;
+	}
+#header-content{
+	background:#fff;
+	width:100%;
+	position:relative;
+	height:20%;
+	min-height:70px;
+	margin:0;
+	float:left;
+}
+#header-content .rainx
+{
+	font-family:"Courier New", Courier, monospace;
+	width:10px;
+	position:absolute;
+	height:10px;
+	margin:0;
+	top:-20px;
+	left:0;
+}
+#body-content{
+	background:#e5e5e5;
+	width:100%;
+	position:relative;
+	height:70%;
+	margin:0;
+	float:left;
+text-align: center;
+vertical-align: middle;
+font-size:34px;
+}
+#foot-content{
+	background:#fff;
+	width:100%;
+	position:relative;
+	height:10%;
+	margin:0;
+	float:left;
+}
+#foot-content .hc{
+	color:#000;
+	font-family:"Courier New", Courier, monospace;
+	position:absolute;
+	width:100%;
+	height:100%;
+	vertical-align:central;
+	text-align:center;
+}
+#foot-content .hi{
+	color:#000;
+	font-family:"Courier New", Courier, monospace;
+	position:absolute;
+	width:100%;
+	height:100%;
+	vertical-align:central;
+	text-align:center;
+	
+	float:left;
+}
+#foot-content .hd{
+	color:#000;
+	font-family:"Courier New", Courier, monospace;
+	position:absolute;
+	width:100%;
+	height:100%;
+	vertical-align:central;
+	text-align:center;
+	float:right;
+}
+#borde{
+	background:#633;
+	width:100%;
+	position:relative;
+	height:1px;
+	margin:0;
+	float:left;
+	}
+	#menu{
+	background:#F60;
+	width:100%;
+	position:relative;
+	height:30px;
+	margin:0;
+	float:left;
+	font:"Courier New", Courier, monospace;
+	border: 2px solid #FF0;
+	border-left:0;
+	
+			font-size:24px;
+	border-right:0;
+	}
+	#menu ul
+	{
+		list-style:none;
+		width:100%;
+		border:0;
+		padding:0;
+		margin:0;
+		font-family:"Courier New", Courier, monospace;
+	}
+	#menu ul li
+		{
+			float:left;
+			text-decoration:none;
+			width:25%;
+			border:0;
+		    padding:0;
+			text-align:center;
+			vertical-align:middle;
+		}
+	#menu ul li:hover
+		{
+			cursor:pointer;
+			width:25%;
+			background:#FF0;
+			height:40px;
+			font-size:28px;
+		}
+</style>
+
+</head>
+
+<body>
+<div id="header-content">
+<div id="hqr"></div>
+<div id="hwllm"></div>
+</div>
+<div id="body-content">
+<div id="menu">
+<ul>
+<li><a>Profile</a></li>
+<li><a>Cryptography</a></li>
+<li><a>Projects</a></li>
+<li><a>Contact</a></li>
+<ul>
+</div>
+asdasdasdasdasdasdasd
+</div>
+<div id="foot-content">
+<div id="borde"></div>
+<div class="hi"></div>
+
+<div class="hd"></div>
+<div class="hc"><p>William Nuñez</p></div>
+</div>
+</body>
+</html>
