@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>twmon</title>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<style>
+body{
+border:0px;
+margin:0px;
+width:100%;
+height:100%;
+background:grey;
+}
+#status_cv {
+	position:absolute;
+	bottom:0px;	
+	width:100%;
+}
+#txt_info{
+	width:30%;
+float:left;
+}
+#current_status_bar{
+    background: #BEF;
+    height: 100%;
+	width:0;
+	text-align:right;
+	}
+#status_bar{	
+background:#fff;
+margin:5% 0 0;	
+float:left;
+width:70%;
+height:30px;
+}
+ul{
+	width:100%;
+	float:left;
+	list-style:none;	
+	padding:0px;	
+}
+
+ul#status_ft li, ul#output_status_ft li{
+float:left;	
+width:25%;
+}
+</style>
+<script>
+$(document).ready(function(){
+update_status3();
+});
+
+function update_status3()
+{
+    var now = new Date();	
+    var outStr = now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+	$("#output_time").html(outStr);	
+	update_bar('#current_status_bar',now.getHours()*100+((now.getMinutes()*100)/60),2400);
+    setTimeout(update_status3, 30000);	
+}
+function  update_bar(id,val,max)
+{
+  var pervent=Math.round((val*100)/max);
+  $(id).css('width',pervent+"%");
+  $(id).html(pervent+"%");
+}
+</script>
+</head>
+<body>
+<div id='status_cv'>
+	<div id='txt_info'>
+		<ul id='status_ft'>
+		<li>date
+		<li>time
+		</ul>
+		<ul id='output_status_ft'>
+		<li> -----
+		<li id='output_time'>0
+		</ul>
+	</div>
+	<div id='status_bar'>
+	<div id='current_status_bar'/>
+	</div>
+	</div>
+</div>
+</body>
+</html>
